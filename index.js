@@ -34,6 +34,7 @@ ds18b20.temperature(program.sensorid, function(err, temp) {
         console.log(err);
         process.exit(1);
     } else {
+        console.log(`Temperature in ${program.room} is ${temp}`);
         client.write(program.database)
           .tag({
             room: program.room
