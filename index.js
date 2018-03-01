@@ -29,7 +29,7 @@ if (!program.sensorid || program.sensorid.length < 1) {
 const client = new Influx(`http://${program.host}:8086/${program.database}`);
 
 // ... async call
-ds18b20.temperature('10-00080283a977', function(err, temp) {
+ds18b20.temperature(program.sensorid, function(err, temp) {
     if (err) {
         console.log(err);
         process.exit(1);
